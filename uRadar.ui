@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RadarWindow</class>
+ <widget class="QMainWindow" name="RadarWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>783</width>
+    <height>617</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(109, 109, 109);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="1">
+     <widget class="QLabel" name="distance">
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2" colspan="2">
+     <widget class="QPushButton" name="stopButton">
+      <property name="text">
+       <string>STOP</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="distance_3">
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>ANGLE</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QPushButton" name="startButton">
+      <property name="text">
+       <string>Start Acquisition</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QLabel" name="angle">
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="distance_2">
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>DISTANCE</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="4">
+     <widget class="PlotWidget" name="polarGraph"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>783</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuUltrasonic_Radar">
+    <property name="title">
+     <string>Ultrasonic Radar</string>
+    </property>
+   </widget>
+   <addaction name="menuUltrasonic_Radar"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PlotWidget</class>
+   <extends>QGraphicsView</extends>
+   <header>pyqtgraph.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>startButton</sender>
+   <signal>clicked()</signal>
+   <receiver>RadarWindow</receiver>
+   <slot>startAcqPlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>103</x>
+     <y>553</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>21</x>
+     <y>577</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stopButton</sender>
+   <signal>clicked()</signal>
+   <receiver>RadarWindow</receiver>
+   <slot>stop()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>513</x>
+     <y>558</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>468</x>
+     <y>575</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>startAcqPlot()</slot>
+  <slot>stop()</slot>
+ </slots>
+</ui>
